@@ -9,3 +9,5 @@ const startServer = asyncHandler(async () => {
     console.log(`server start on port ${portServer}`);
   });
 });
+
+startServer();
