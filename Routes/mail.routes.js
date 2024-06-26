@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { sendMail } = require("../controllers/mailController");
-router.route("/sendmail").post(sendMail);
+const { functionSendMail } = require("../controllers/mailController");
+router.route("/sendmail").post(functionSendMail);
 
 module.exports = router;
