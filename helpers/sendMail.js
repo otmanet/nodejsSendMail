@@ -6,11 +6,21 @@ const transporter = nodeMailer.createTransport({
   secure: false, // Use `true` for port 465, `false` for all other ports
   auth: {
     user: process.env.MAIL,
-    pass: "jn7jnAPss4f63QBp6D",
+    pass: process.env.PASSWORD,
   },
 });
 async function sendMail() {
-  // const transport =
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL,
+      to: process.env.MAIL_RECEIVER,
+      subject: "Hello",
+      text: "Hello world ?",
+      html: "<b>Hello world</b>",
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 module.exports = sendMail;
