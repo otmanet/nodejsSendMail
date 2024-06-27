@@ -1,6 +1,6 @@
 const AppError = require("../helpers/AppError");
 
-const errorHandle = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
   if (err instanceof AppError) {
     if (err.isOperational) {
       res
@@ -18,3 +18,4 @@ const errorHandle = (err, req, res, next) => {
     res.json({ status: status, message: err.message });
   }
 };
+module.exports = { errorHandler };
